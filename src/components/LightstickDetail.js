@@ -23,7 +23,7 @@ const LightstickDetail = ({ product }) => {
             </Box>
             <VStack justifyContent="space-around" flexDirection="column" paddingLeft={12}>
                 <Text bold>{product.itemname}</Text>
-                <Text >{product.artist}</Text>
+                <Text>{product.artist}</Text>
             </VStack>
 
         </VStack>

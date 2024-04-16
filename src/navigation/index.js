@@ -13,7 +13,7 @@ import UserScreen from '../screens/UserScreen.js';
 import DetailScreen from '../screens/DetailScreen.js'
 import MyTheme from '../theme';
 
-import concertData from "../json/concerts.json";
+import concertData from "../components/Header.js";
 import shopData from "../json/lightsticks.json";
 
 const Stack = createNativeStackNavigator();
@@ -92,7 +92,7 @@ const HomeStack = () => {
                 name="Home"
                 component={HomeScreen}
                 options={{
-                    title: concertData.concertPic,
+                    headerShown: false,
                     headerTitleStyle: {
                         fontWeight: '500',
                         fontSize: 26

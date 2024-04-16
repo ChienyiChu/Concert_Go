@@ -1,17 +1,23 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Box, Center, Image, HStack } from '@gluestack-ui/themed';
+import { Box, Image, HStack,Pressable } from '@gluestack-ui/themed';
 import Carousel from 'react-native-snap-carousel';
+import { useNavigation } from "@react-navigation/native";
 
-export default function Slider({ items }) {
+const Slider = ({ items })=> {
+  const { navigate } = useNavigation();
   const _renderItem = ({ item }) => {
     return (
-      <Box height={350} padding={0}>
-        <Center>
+      <Box height={450} padding={0} marginTop={30}>
+    
         <HStack justifyContent="center">
+        <Pressable
+                    onPress={() => navigate('Concert', items)}
+                >
           <Image style={styles.image} source={{ uri: item.image }} />
+        </Pressable>
         </HStack>
-        </Center>
+        
       </Box>
     );
   };
@@ -22,6 +28,7 @@ export default function Slider({ items }) {
       data={items}
       sliderWidth={400}
       itemWidth={300}
+      sliderHeight={400}
       renderItem={_renderItem}
     />
   );
@@ -35,3 +42,5 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 });
+
+export default Slider;

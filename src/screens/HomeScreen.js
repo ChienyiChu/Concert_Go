@@ -1,24 +1,27 @@
 import React from 'react';
-import { SafeAreaView, View } from 'react-native';
+import { SafeAreaView} from 'react-native';
+import { Box, Text, Image, Center, ScrollView } from '@gluestack-ui/themed';
 import Slider from '../components/Slider.js';
 import carouselItems from '../json/concerts.json';
+import Header from '../components/Header.js';
+import HomeItem from '../components/HomeItem.js';
 
 export default class HomeScreen extends React.Component {
   render() {
     return (
-      <SafeAreaView
-        style={{
-          flex: 1,
-          backgroundColor: 'white',
-        }}>
-        <View
+      <SafeAreaView backgroundColor="#FFFFFF">
+        <Header/> 
+        <ScrollView>
+          <Box
           style={{
-            flex: 1,
+            flex: 0,
             flexDirection: 'row',
             justifyContent: 'center',
           }}>
-          <Slider items={carouselItems} />
-        </View>
+            <Slider items={carouselItems} />
+          </Box>
+          <HomeItem/>
+        </ScrollView>   
       </SafeAreaView>
     );
   }
